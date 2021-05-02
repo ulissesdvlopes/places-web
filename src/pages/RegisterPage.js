@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { registerUser } from '../providers/apiProvider'
 
 const initialPayload = {
   username: "",
@@ -10,6 +11,7 @@ const initialPayload = {
 const RegisterPage = props => {
 
   const [payload, setPayload] = useState(initialPayload)
+  const history = useHistory();
 
   const onChange = e => {
     e.preventDefault()
@@ -18,7 +20,15 @@ const RegisterPage = props => {
 
   const send = e => {
     e.preventDefault();
-    console.log(payload);
+    //console.log(payload);
+    registerUser(payload)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        console.warn(error);
+      })
+    //console.log(result);
   }
 
   return (
