@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/chat">
+        <Route path="/chat/:place">
           <PlaceChatPage />
         </Route>
         <Route path="/list">

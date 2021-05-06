@@ -35,3 +35,9 @@ export const login = async payload => {
   const data = await response.json();
   return data;
 }
+
+export const getPlaces = async () => {
+  const response = await fetch(`${baseUrl}/places/`)
+  const data = await response.json();
+  return data;
+}
