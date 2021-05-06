@@ -41,3 +41,15 @@ export const getPlaces = async () => {
   const data = await response.json();
   return data;
 }
+
+export const createPlace = async (payload, owner_id) => {
+  const body = JSON.stringify({...payload, owner_id});
+  console.log(body);
+  const response = await fetch(`${baseUrl}/places/`, {
+    method: 'post',
+    body: body,
+    headers: headers
+  })
+  const data = await response.json();
+  return data;
+}
