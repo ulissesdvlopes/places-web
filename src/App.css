@@ -14,3 +14,89 @@ form {
 input {
   margin: 0 1rem;;
 }
+
+.chat-window {
+  border: 4px solid #aaa;
+  margin: 1rem;
+  padding: 0;
+  height: calc(100vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+.chat-place-name {
+  margin: 0;
+  padding: 0.25rem;
+  background-color: blue;
+  color: white;
+}
+
+section.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+p.message {
+  margin: 0.25rem;
+}
+
+p.message:last-child {
+  padding-bottom: 10px;
+}
+
+.chat-form {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border-top: 2px solid #aaa;
+  background-color: #e1e1e1;
+}
+
+.chat-form label {
+  margin: 0;
+  padding-left: 1ch;
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  
+}
+
+.chat-form label input {
+  margin: 0 1ch;
+  padding: 0 1ch;
+  flex: 1;
+  border: none;
+  background-color: #fff;
+  font-size: 1rem;
+  font-family: serif;
+}
+
+.chat-form label input:focus-visible {
+  outline: none;
+}
+
+.chat-form button {
+  background-color: #e1e1e1;
+  margin-right: 1ch;
+  border: 0;
+}
+
+@media (min-width: 540px) {
+  .chat-window {
+    margin: 4rem;
+  }
+}
+
+@media (min-width: calc(800px + 8rem)) {
+  .chat-window {
+    margin: 4rem auto;
+  }
+}
