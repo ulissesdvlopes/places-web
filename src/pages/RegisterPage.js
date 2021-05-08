@@ -18,17 +18,16 @@ const RegisterPage = props => {
     setPayload({...payload, [e.target.name]: e.target.value})
   }
 
-  const send = e => {
+  const send = async e => {
     e.preventDefault();
-    //console.log(payload);
-    registerUser(payload)
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => {
-        console.warn(error);
-      })
-    //console.log(result);
+    try {
+      const result = await registerUser(payload)
+      console.log(result)
+      localStorage.setItem("user", JSON.stringify(result))
+      history.push("/list")
+    } catch (error) {
+      console.warn(error)
+    }
   }
 
   return (
@@ -45,7 +44,7 @@ const RegisterPage = props => {
         </label>
         <label>
           Password
-          <input name="password" onChange={onChange} value={payload.password} />
+          <input type="password" name="password" onChange={onChange} value={payload.password} />
         </label>
         <button onClick={send}>Cadastrar</button>
       </form>

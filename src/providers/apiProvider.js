@@ -1,27 +1,19 @@
-const baseUrl = "http://localhost:4000/api"
+// const baseUrl = "http://localhost:4000/api"
+const baseUrl = "https://unwieldy-impressive-argusfish.gigalixirapp.com/api"
 
 let headers = new Headers();
 headers.append("Content-Type", "application/json");
 
-export const registerUser = payload => {
+export const registerUser = async payload => {
   const body = JSON.stringify(payload);
   console.log(body);
-  fetch(`${baseUrl}/users`, {
+  const response = await fetch(`${baseUrl}/users`, {
     method: 'post',
     body: body,
     headers: headers
   })
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    // console.log(data);
-    return data;
-  })
-  .catch(function(error) {
-    // console.error(error);
-    return error;
-  })
+  const data = await response.json();
+  return data;
 }
 
 export const login = async payload => {

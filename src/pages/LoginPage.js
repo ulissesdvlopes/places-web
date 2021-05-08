@@ -39,7 +39,7 @@ const LoginPage = props => {
         </label>
         <label>
           Password
-          <input name="password" onChange={onChange} value={payload.password} />
+          <input type="password" name="password" onChange={onChange} value={payload.password} />
         </label>
         <button onClick={send}>Entrar</button>
       </form>
