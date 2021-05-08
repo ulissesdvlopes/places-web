@@ -31,7 +31,7 @@ const LoginPage = props => {
 
   return (
     <main>
-      <h1>Login</h1>
+      <h1>SignIn</h1>
       <form>
         <label>
           Username
@@ -41,9 +41,9 @@ const LoginPage = props => {
           Password
           <input type="password" name="password" onChange={onChange} value={payload.password} />
         </label>
-        <button onClick={send}>Entrar</button>
+        <button onClick={send}>Enter</button>
       </form>
-      <Link to="/register">Cadastro</Link>
+      <Link to="/register">SignUp</Link>
     </main>
   )
 }

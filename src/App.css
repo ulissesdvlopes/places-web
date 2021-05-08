@@ -1,5 +1,5 @@
 main {
-  padding: 4rem;
+  padding: 1rem;
 }
 
 label {
@@ -19,7 +19,7 @@ input {
   border: 4px solid #aaa;
   margin: 1rem;
   padding: 0;
-  height: calc(100vh - 8rem);
+  height: calc(100vh - 2rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,6 +47,15 @@ p.message {
   margin: 0.25rem;
 }
 
+.sender {
+  font-weight: 600;
+  color: #333;
+}
+
+.message-content {
+  font-family: serif;
+}
+
 p.message:last-child {
   padding-bottom: 10px;
 }
@@ -66,7 +75,10 @@ p.message:last-child {
   display: flex;
   align-items: stretch;
   flex: 1;
-  
+}
+
+.chat-form label .label-text {
+  display: none;
 }
 
 .chat-form label input {
@@ -92,6 +104,13 @@ p.message:last-child {
 @media (min-width: 540px) {
   .chat-window {
     margin: 4rem;
+    height: calc(100vh - 8rem);
+  }
+  .chat-form label .label-text {
+    display: initial;
+  }
+  main {
+    padding: 4rem;
   }
 }
 

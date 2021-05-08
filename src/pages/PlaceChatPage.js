@@ -86,14 +86,17 @@ const PlaceChatPage = props => {
       <section className="messages" ref={messagesContainerRef}>
         {messages.map(item => (
           <p className="message" id={`${item.from}-${item.time}`}>
-            <span className="sender">{`<${item.from}>`} </span>{item.message}
+            <span className="sender">{`<${item.from}>`} </span>
+            <span className="message-content">{item.message}</span>
           </p>
         ))}
       </section>
 
       <form className="chat-form">
         <label>
-          message:
+          <span className="label-text">
+            message:
+          </span>
           <input 
             value={message}
             onChange={e => setMessage(e.target.value)}

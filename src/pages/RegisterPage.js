@@ -32,7 +32,7 @@ const RegisterPage = props => {
 
   return (
     <main>
-      <h1>Cadastro</h1>
+      <h1>SignUp</h1>
       <form>
         <label>
           Username
@@ -46,9 +46,9 @@ const RegisterPage = props => {
           Password
           <input type="password" name="password" onChange={onChange} value={payload.password} />
         </label>
-        <button onClick={send}>Cadastrar</button>
+        <button onClick={send}>Register</button>
       </form>
-      <Link to="/">Login</Link>
+      <Link to="/">SignIn</Link>
     </main>
   )
 }

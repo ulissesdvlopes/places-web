@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { createPlace, getPlaces } from '../providers/apiProvider';
 
 const initialPayload = { name: "" }
 
 const PlacesListPage = props => {
 
+  const history = useHistory();
   const [user, setUser] = useState({});
   const [list, setList] = useState([]);
   const [payload, setPayload] = useState(initialPayload)
@@ -41,22 +42,28 @@ const PlacesListPage = props => {
     }
   }
 
+  const logout = () => {
+    localStorage.removeItem("user")
+    history.push("/")
+  }
+
   return (
     <main>
       <h1>Places</h1>
-      <p>Bem vindo, {user.username}</p>
+      <p>Welcome, {`<${user.username}>`}</p>
+      <button onClick={logout}>SignOut</button>
 
       <form>
-        <h2>Criar place</h2>
+        <h2>Create a place for you</h2>
         <label>
           Name
           <input name="name" onChange={onChange} value={payload.name} />
         </label>
-        <button onClick={send}>Criar</button>
+        <button onClick={send}>Create</button>
       </form>
 
       <section>
-        <h2>Places disponíveis</h2>
+        <h2>Available Places</h2>
         <ul>
           {list.map(item => (
             <li key={`place-${item.id}`}>
