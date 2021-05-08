@@ -20,7 +20,7 @@ const PlaceChatPage = props => {
   }, [])
 
   useEffect(() => {
-    const socketObj = new Socket("ws://unwieldy-impressive-argusfish.gigalixirapp.com/socket", {});
+    const socketObj = new Socket("wss://unwieldy-impressive-argusfish.gigalixirapp.com/socket", {});
     socketObj.connect()
     setSocket(socketObj)
     return function disconnect() {
